@@ -1,0 +1,81 @@
+{
+    "User": {
+        "name": {
+            "regexp": "[A-Z][a-z]{5,10}"
+        },
+        "email": {
+            "regexp": "[a-z]{5,10}@[a-z]{5}\\.[a-z]{2,3}"
+        },
+        "password": {
+            "string": {}
+        },
+        "categories": {
+            "hasMany": "Category"
+        },
+        "transactions": {
+            "hasMany": "Transaction"
+        }
+    },
+    "Transaction": {
+        "id": {
+            "int": {
+                "min": 0,
+                "max": 1000000
+            }
+        },
+        "value": {
+            "int": {
+                "min": 1,
+                "max": 1000000
+            }
+        },
+        "description": {
+            "loremWords": {
+                "minLength": 5,
+                "maxLength": 20
+            }
+        },
+        "category": {
+            "int": {
+                "min": 1,
+                "max": 5
+            }
+        },
+        "payment": {
+            "string": [
+                "normal",
+                "parcelled",
+                "fixed"
+            ]
+        },
+        "date": {
+            "dateTime": {
+                "min": "2022-01-01T00:00:00Z",
+                "max": "2022-12-31T23:59:59Z"
+            }
+        },
+        "fulfilled": {
+            "boolean": {}
+        }
+    },
+    "Category": {
+        "id": {
+            "int": {
+                "min": 1,
+                "max": 5
+            }
+        },
+        "name": {
+            "regexp": "[A-Z][a-z]{5,10}"
+        },
+        "type": {
+            "string": [
+                "income",
+                "expense"
+            ]
+        },
+        "color": {
+            "regexp": "#[0-9A-F]{6}"
+        }
+    }
+}
