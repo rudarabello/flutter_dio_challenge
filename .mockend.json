@@ -1,5 +1,4 @@
 {
-    "Type": {},
     "User": {
         "name": {
             "regexp": "[A-Z][a-z]{5,10}"
@@ -18,6 +17,7 @@
         }
     },
     "Transaction": {
+        "type": {},
         "id": {
             "int": {
                 "min": 0,
